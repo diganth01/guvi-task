@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REGISTRATION</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/style2.css">
+<script>  
+function ageCalculator() {  
+    var userinput = document.getElementById("dob").value;  
+    var dob = new Date(userinput);  
+    if(userinput==null || userinput=='') {  
+      document.getElementById("message").innerHTML = "**Choose a date please!";    
+      return false;   
+    } else {  
+      
+    //calculate month difference from current date in time  
+    var month_diff = Date.now() - dob.getTime();  
+      
+    //convert the calculated difference in date format  
+    var age_dt = new Date(month_diff);   
+      
+    //extract year from date      
+    var year = age_dt.getUTCFullYear();  
+      
+    //now calculate the age of the user  
+    var age1 = Math.abs(year - 1970);  
+      
+    //display the calculated age  
+    return document.getElementById("age").placeholder =    
+             "Age is: " + age1 + " years. ";  
+    }  
+}  
+</script>  
+
+    <script src="js/profile.js"></script>
+  </head>
+  <body>
+    <form id="myForm" action="php/profile.php" method="post" >
+    <div>
+      <head><h1>PROFILE PAGE</h1></head>
+    </div>
+    
+    <div >
+      <label for="Username">Username</label>  <input type="text" name="Username" id="Username"  placeholder="ENTER YOUR NAME"  />
+    </div>
+ 
+    <div>
+      <label for="dob">dob</label> <input type="date" name="dob" id="dob" placeholder="ENTER YOUR DOB" />
+    </div>
+	   <div>
+      <label for="age">age</label> <input type="text" name="age" id="age" placeholder="YOUR AGE" onclick = "ageCalculator()" />
+    </div>
+	
+    <div>
+      <label for="contact">contact</label>
+      <input type="text" name="contact" id="" placeholder="ENTER YOUR contact"/>
+    </div>
+    <div>
+        <label for="address">address</label>
+      <input type="text" name="address" id="" placeholder="ENTER YOUR address"/>
+    </div>
+    <div>
+ 
+ 
+      <input type="submit" value="update" name="update" id="update" />
+     </div >     
+  </form>
+  </body>
+ 
+</html>
